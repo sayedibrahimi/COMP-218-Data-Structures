@@ -1,97 +1,82 @@
-# Timer Class with Operator Overloading
+# Timer Class Project
 
-This project is an implementation of a `timer` class in C++ that supports various operator overloading functions. The class allows for manipulation of time values (hours, minutes, and seconds) and can perform arithmetic operations on times (e.g., adding two times together or adding seconds to a time).
+## Overview
+
+This C++ project demonstrates the implementation of a `timer` class with operator overloading. The class represents time in hours, minutes, and seconds, and provides various operations for time manipulation and display.
 
 ## Features
 
-- Overloaded `+` operator to add two time instances or add seconds to a time.
-- Overloaded `+=` operator for in-place addition of time or seconds.
-- Overloaded `=` operator for deep copying of time objects.
-- Overloaded `<<` and `>>` operators for input and output in the format `hh:mm:ss`.
-- Proper handling of time values, ensuring that minutes and seconds wrap correctly (e.g., 60 seconds equals 1 minute).
+- Time representation in hh:mm:ss format
+- Addition of two time objects
+- Addition of seconds to a time object
+- Deep copy of time objects
+- Formatted input and output of time
 
-## Code Example
+## Class Structure
 
-```cpp
-#include <iostream>
-using namespace std;
+### timer
 
-int main() {
-    timer timeA, timeB, timeC;
+- Private members:
+  - `int hour`
+  - `int minute`
+  - `int second`
+- Public methods:
+  - Default constructor
+  - Overloaded operators:
+    - `+` (time + time, time + int)
+    - `=` (deep copy)
+    - `+=` (time += time, time += int)
+    - `<<` (output)
+    - `>>` (input)
 
-    // Input timeA
-    cout << "Enter a time value (hh:mm:ss): ";
-    cin >> timeA;
+## Operator Overloading
 
-    // Copy timeA to timeB using overloaded assignment operator
-    timeB = timeA;
-    cout << "timeA is: " << timeA << endl;
-    cout << "timeB is: " << timeB << endl;
+1. `+`: Add two times or add seconds to a time
+2. `=`: Perform a deep copy of one time to another
+3. `+=`: Add and assign (for both time and seconds)
+4. `<<`: Output time in hh:mm:ss format
+5. `>>`: Input time in hh:mm:ss format
 
-    // Add 1000 seconds to timeA using overloaded + operator
-    cout << "timeA + 1000 is: " << timeA + 1000 << endl;
+## Usage
 
-    // Add timeA and timeB
-    cout << "timeA + timeB is: " << timeA + timeB << endl;
+1. Compile the program:
+   ```
+   g++ -o timer_program sibrahimiDS1.cpp
+   ```
+2. Run the compiled program:
+   ```
+   ./timer_program
+   ```
+3. Follow the prompts to input time values and see the results of various operations.
 
-    // Combine two time objects
-    timeC = timeA + timeB;
-    cout << "timeC = timeA + timeB is: " << timeC << endl;
+## Example Operations
 
-    // Use += operator to add timeA to timeB
-    timeB += timeA;
-    cout << "timeB += timeA is: " << timeB << endl;
+- Adding two time objects
+- Adding seconds to a time object
+- Copying time objects
+- Displaying time in formatted output
 
-    // Use += operator to add 1000 seconds to timeB
-    timeB += 1000;
-    cout << "timeB += 1000 is: " << timeB << endl;
+## Input Format
 
-    return 0;
-}
-```
+Time should be entered in the format hh:mm:ss (e.g., 12:30:45)
 
-## Input/Output Example
-Input:
-```
-Enter a time value (hh:mm:ss): 12:3:55
-```
+## Error Handling
 
-Output:
-```
-timeA is: 12:03:55
-timeB is: 12:03:55
+The program includes basic error checking for invalid minute and second values (must be between 0 and 59).
 
-timeA is: 12:03:55
-timeA + 1000 is: 12:20:35
-timeB is: 12:03:55
+## Author
 
-timeA is: 12:03:55
-timeB is: 12:03:55
-timeA + timeB is: 24:07:50
+Sayed Abdul Ahad Ibrahimi
 
-timeA is: 12:03:55
-timeB is: 12:03:55
-timeC = timeA + timeB is: 24:07:50
+## Date
 
-timeA is: 12:03:55
-timeB is: 12:03:55
-timeB += timeA is: 24:07:50
+September 11, 2022
 
-timeB is: 24:07:50
-timeB += 1000 is: 24:24:30
-```
+## Class
 
-## How to Run
+COMP 218 Fall 2022
 
-1. Clone the repository or download the project files.
-2. Compile the program using a C++ compiler. For example, with g++:
-```
-g++ -o timer_program sibrahimiDS1.cpp
-./timer_program
-```
+## Notes
 
-3. Follow the on-screen instructions to enter time values and observe the output.
-
-## Key Concepts
-1. Operator Overloading: This project demonstrates how to overload operators (+, +=, =, <<, and >>) in C++ to provide intuitive functionality for user-defined types.
-2. Time Arithmetic: The project deals with adding time values in hours, minutes, and seconds, and ensures correct overflow behavior (e.g., 60 seconds equals 1 minute).
+- This project is designed to demonstrate operator overloading in C++.
+- The main function includes various test cases to showcase the functionality of the timer class.
